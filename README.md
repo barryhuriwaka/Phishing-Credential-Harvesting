@@ -1,4 +1,4 @@
-[[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
+[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
 
 <div align="center">
 
@@ -145,5 +145,5 @@ README.md
 
 [← Previous Case Study — Business Email Compromise](https://github.com/barryhuriwaka/Business-Email-Compromise)  
 [Next Case Study → Case Study 004 — Malware Execution on Endpoint](https://github.com/barryhuriwaka/Malware-Execution-Endpoint)
-← Back to Main Portfolio (https://github.com/barryhuriwaka/cybersecurity-portfolio)
+[[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
 
