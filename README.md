@@ -211,3 +211,7 @@ README.md
 ---
 
 [← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
+---
+
+[← Previous Case Study — Business Email Compromise](https://github.com/barryhuriwaka/Business-Email-Compromise)  
+[Next Case Study → Case Study 004 — Malware Execution on Endpoint](https://github.com/barryhuriwaka/Malware-Execution-Endpoint)
