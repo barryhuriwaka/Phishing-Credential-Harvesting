@@ -1,4 +1,6 @@
-# CASE STUDY 003 - Phishing & Credential Harvesting Attempt  
+[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
+
+# CASE STUDY 003 — Phishing & Credential Harvesting Attempt  
 **Status:** Contained  
 **Severity:** High  
 **Category:** Email Threat / Identity Compromise / Social Engineering  
@@ -6,11 +8,13 @@
 ---
 
 ## 🧭 Executive Summary  
+
 A targeted phishing email impersonating Microsoft Support attempted to lure a user into entering their credentials into a fake Microsoft login page.  
 Shortly after the user submitted their credentials, the attacker attempted to authenticate from Vietnam, triggering MFA prompts while the user was offline.
 
-Investigation confirmed:  
-- A credential harvesting phishing email  
+Investigation confirmed:
+
+- Credential harvesting phishing email  
 - User clicked the link and entered credentials  
 - Attacker attempted MFA bypass  
 - Multiple failed sign‑ins from a foreign IP  
@@ -21,6 +25,7 @@ The incident was contained before account takeover occurred.
 ---
 
 ## 🎯 Objectives  
+
 - Determine whether the phishing email resulted in credential theft  
 - Identify attacker sign‑in attempts  
 - Assess whether MFA was bypassed  
@@ -44,33 +49,37 @@ The incident was contained before account takeover occurred.
 ---
 
 ## 🔍 Initial Indicators  
+
 - User clicked a known phishing URL  
 - Defender flagged credential harvesting behaviour  
 - Sign‑in attempts from Vietnam  
-- MFA prompts triggered while user was offline  
+- MFA prompts triggered while user offline  
 - User reported “strange login notifications”  
 
 ---
 
 ## 📊 KQL Queries Used  
 
-### **1. Phishing Click Events**
-```kql
+### 1️⃣ Phishing Click Events  
+
+```kusto
 EmailEvents
 | where RecipientEmailAddress == "michael.ross@brisbanetech.com.au"
 | where ThreatTypes contains "CredentialPhishing"
 | project Timestamp, SenderFromAddress, Subject, ThreatTypes, Url
 ```
 
-### **2. Sign‑In Attempts After Click**
-```kql
+### 2️⃣ Sign‑In Attempts After Click  
+
+```kusto
 SigninLogs
 | where UserPrincipalName == "michael.ross@brisbanetech.com.au"
 | project TimeGenerated, IPAddress, Location, ResultType, ResultDescription
 ```
 
-### **3. MFA Prompt Activity**
-```kql
+### 3️⃣ MFA Prompt Activity  
+
+```kusto
 SigninLogs
 | where UserPrincipalName == "michael.ross@brisbanetech.com.au"
 | where ResultDescription contains "MFA"
@@ -80,22 +89,23 @@ SigninLogs
 
 ## 📁 Evidence Summary  
 
-### **Phishing Email Indicators**
-```
-Sender: Microsoft Account Team <no-reply@microsoftsupport-security.com>
-Subject: Action Required: Your Password Will Expire
-URL: https://login-microsoft-auth-secure.com/verify
-Threat Type: Credential Harvesting
-```
+### Phishing Email Indicators  
 
-### **Suspicious Sign‑In Attempts**
+- **Sender:** Microsoft Account Team <no-reply@microsoftsupport-security.com>  
+- **Subject:** Action Required: Your Password Will Expire  
+- **URL:** https://login-microsoft-auth-secure.com/verify  
+- **Threat Type:** Credential Harvesting  
+
+### Suspicious Sign‑In Attempts  
+
 | Time (AEST) | IP | Location | Result |
 |-------------|----|----------|--------|
 | 09:14 | 113.23.88.201 | Hanoi, Vietnam | Failed |
 | 09:15 | 113.23.88.201 | Hanoi, Vietnam | MFA Required |
 | 09:16 | 113.23.88.201 | Hanoi, Vietnam | Failed |
 
-### **User Behaviour**
+### User Behaviour  
+
 - User clicked phishing link  
 - User entered credentials  
 - User ignored MFA prompts (correct behaviour)  
@@ -105,14 +115,16 @@ Threat Type: Credential Harvesting
 
 ## 🧠 Analyst Assessment  
 
-### **Indicators of Compromise**
+### Indicators of Compromise  
+
 - Phishing URL click  
 - Credential submission  
 - Foreign login attempts  
 - MFA fatigue attempt  
 - High‑risk user activity flagged  
 
-### **Likely Attack Chain**
+### Likely Attack Chain  
+
 1. User receives phishing email  
 2. User clicks link and enters credentials  
 3. Attacker attempts login from Vietnam  
@@ -120,26 +132,28 @@ Threat Type: Credential Harvesting
 5. Attacker fails to bypass MFA  
 6. SOC alerted and investigation begins  
 
-**Risk Level:** **High**  
-Credential harvesting is a common precursor to full account takeover.
+**Risk Level:** High — credential harvesting is a common precursor to full account takeover.
 
 ---
 
 ## 🛡️ Containment Actions  
 
-### **Immediate**
+### Immediate  
+
 - Forced password reset  
 - Revoked all active sessions  
 - Blocked attacker IP range  
 - Disabled any suspicious sessions  
 
-### **Investigation**
+### Investigation  
+
 - Reviewed sign‑in logs  
 - Checked for mailbox rule creation  
 - Verified no OAuth app consent  
 - Confirmed no lateral movement  
 
-### **Recovery**
+### Recovery  
+
 - Re‑enabled account with MFA  
 - User completed phishing awareness refresher  
 - Added user to targeted threat protection group  
@@ -158,7 +172,7 @@ Credential harvesting is a common precursor to full account takeover.
 
 ---
 
-## 🕒 Timeline (AEST)
+## 🕒 Timeline (AEST)  
 
 | Time | Event |
 |------|--------|
@@ -174,6 +188,7 @@ Credential harvesting is a common precursor to full account takeover.
 ---
 
 ## 📁 Recommended Repo Structure  
+
 ```
 /diagrams
 /logs
@@ -182,5 +197,7 @@ Credential harvesting is a common precursor to full account takeover.
 /artifacts
 README.md
 ```
-[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
 
+---
+
+[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
