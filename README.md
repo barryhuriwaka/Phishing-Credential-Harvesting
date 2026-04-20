@@ -1,5 +1,15 @@
 [← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
 
+<div align="center">
+
+# 🔥 CYBERSECURITY CASE STUDY 003  
+### **Phishing Attack • Credential Harvesting • MFA Protection**
+
+</div>
+
+---
+
+
 # CASE STUDY 003 — Phishing & Credential Harvesting Attempt  
 **Status:** Contained  
 **Severity:** High  
