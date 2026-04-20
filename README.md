@@ -124,7 +124,7 @@ Threat Type: Credential Harvesting
 Credential harvesting is a common precursor to full account takeover.
 
 ---
-[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
+
 ## 🛡️ Containment Actions  
 
 ### **Immediate**
@@ -151,4 +151,36 @@ Credential harvesting is a common precursor to full account takeover.
 | Tactic | Technique | ID | Reason |
 |--------|-----------|----|--------|
 | Initial Access | Phishing | T1566 | User clicked malicious link |
-| Credential Access
+| Credential Access | Credential Harvesting | T1555 | User entered credentials |
+| Credential Access | MFA Fatigue | T1110.003 | Attacker attempted MFA bypass |
+| Defense Evasion | Valid Accounts | T1078 | Attempted login with stolen creds |
+| Reconnaissance | Phishing for Information | T1598 | Email designed to harvest credentials |
+
+---
+
+## 🕒 Timeline (AEST)
+
+| Time | Event |
+|------|--------|
+| 09:12 | Phishing email delivered |
+| 09:13 | User clicks link |
+| 09:14 | First login attempt from Vietnam |
+| 09:15 | MFA challenge triggered |
+| 09:16 | Additional failed login attempts |
+| 09:20 | User reports suspicious MFA prompts |
+| 09:25 | SOC begins investigation |
+| 09:40 | Account secured |
+
+---
+
+## 📁 Recommended Repo Structure  
+```
+/diagrams
+/logs
+/queries
+/reports
+/artifacts
+README.md
+```
+[← Back to Main Portfolio](https://github.com/barryhuriwaka/cybersecurity-portfolio)
+
