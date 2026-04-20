@@ -1,4 +1,4 @@
-# CASE STUDY 003 — Phishing & Credential Harvesting Attempt  
+# CASE STUDY 003 - Phishing & Credential Harvesting Attempt  
 **Status:** Contained  
 **Severity:** High  
 **Category:** Email Threat / Identity Compromise / Social Engineering  
